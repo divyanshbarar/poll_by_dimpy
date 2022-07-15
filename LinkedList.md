@@ -158,26 +158,5 @@ public:
 };
 ```
 
-**Middle Of Linked List**
-https://leetcode.com/problems/middle-of-the-linked-list/
-```
-class Solution {
-public:
-    ListNode* middleNode(ListNode* head) {
-        
-        ListNode* noob=head, *pro=head->next;
-        
-        while(pro!=NULL)
-        {
-            pro=pro->next;
-            if(pro!=NULL)
-                pro=pro->next;
-            
-            noob=noob->next;
-        }
-        
-        return noob;
-    }
-};
-```
+
 
