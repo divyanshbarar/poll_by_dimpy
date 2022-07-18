@@ -39,9 +39,12 @@ public:
 ```
 
 ** Is palindrome Linked List**
+
 https://leetcode.com/problems/palindrome-linked-list/
 
 ## slow=fast=head for middle
+## reverse from mid to end
+## traverse to th end
 
 ```
 class Solution {
