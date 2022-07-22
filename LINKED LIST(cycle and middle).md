@@ -38,7 +38,7 @@ public:
 };
 ```
 
-** Is palindrome Linked List**
+**Is palindrome Linked List**
 
 https://leetcode.com/problems/palindrome-linked-list/
 
