@@ -22,7 +22,7 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         
-        ListNode* slow=head, *fast=head->next;
+        ListNode* pro=head, *noob=head->next;
         
         while(pro!=NULL)
         {
