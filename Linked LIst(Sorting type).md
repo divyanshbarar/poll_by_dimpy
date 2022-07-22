@@ -88,6 +88,8 @@ public:
 
 https://leetcode.com/problems/merge-k-sorted-lists/
 
+**Refer Copy for approach1 and 2 and This algo uses min-heap**
+
 ```
 class mycompare{
 	public:
