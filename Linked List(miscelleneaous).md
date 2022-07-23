@@ -125,3 +125,51 @@ class Solution
     }
 };
 ```
+
+## Clone a linked list with random and next pointer
+
+Construct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list.
+
+https://leetcode.com/problems/copy-list-with-random-pointer/
+
+**Intiution- Store a deep copy of each Node in a map corresponding to roginal one
+then start assiging the pointers of original one to deep copy as it it**
+
+```
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+    
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+*/
+
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        
+        unordered_map<Node*, Node*> mp;
+      
+        Node* curr = head;
+        while (curr) {
+            mp[curr] =new Node(curr->val);
+            curr = curr->next;
+        }
+        curr = head;
+        while (curr) {
+            mp[curr]->next = mp[curr->next];
+            mp[curr]->random = mp[curr->random];       //<------------------Magic Code
+            curr= curr->next;
+        }
+        return mp[head];
+        
+    }
+};
+```
