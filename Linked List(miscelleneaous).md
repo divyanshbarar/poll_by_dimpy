@@ -1,4 +1,4 @@
-## Add Two Number (very important)
+## Add Two Number in reversed manner(very important)
 
 **Can be asked by add 1 to LL**
 
@@ -53,3 +53,75 @@ public:
 };
 ```
 
+## Add two no. in straaight way
+
+https://practice.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1
+
+```
+class Solution
+{
+     Node* addTwoNumbers(Node* l1, Node* l2) {
+   
+        Node *ptr = new Node(0);     //new list;
+        Node *temp = ptr;
+        
+        int c = 0;
+		//traversing both list till one of the list not reaches NULL
+        while (l1 != NULL ||  l2 != NULL || c)
+        {
+            int sum = 0;
+			// if l1  is not null
+			// add l1-> value to sum
+            if(l1 != NULL)
+            {
+                sum += l1->data;
+                l1 = l1->next;
+            }
+            
+			// if l2  is not null
+			// add l2-> value to sum
+            if(l2 != NULL)
+            {
+                sum += l2->data;
+                l2 = l2-> next;
+            }
+            
+			// add carry to sum
+            sum += c;
+			// carry is updated by sum/10 because for 18 , 
+			// 18 / 10 is 1 which is the carry
+            c = sum/10;
+			// add sum% 10 to new node as it containg the sum
+            Node *node = new Node(sum%10);
+            temp -> next = node;
+            temp = temp -> next;
+        }
+        return ptr -> next;
+    }
+    Node* reverseList(Node* head) {
+
+         Node *prev=NULL, *curr=head;
+        while(curr!=NULL)
+        {
+            Node *forward=curr->next; 
+            curr->next=prev;
+            prev=curr;
+            curr=forward;
+        }
+        return prev;
+        
+    }
+    public:
+    //Function to add two numbers represented by linked list.
+    struct Node* addTwoLists(struct Node* first, struct Node* second)  //<---------------------------------main code
+    { 
+        // code here
+        first=reverseList(first);
+        second=reverseList(second);
+        
+        Node* temp=addTwoNumbers(first,second);
+        temp=reverseList(temp);
+        return temp;
+    }
+};
+```
