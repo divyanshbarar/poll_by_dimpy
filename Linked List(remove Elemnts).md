@@ -154,3 +154,36 @@ void removeLoop(Node* head)
         }
     }
  ```
+
+## Remove Nth Node from end of the list
+
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+![remove_ex1](https://user-images.githubusercontent.com/68277579/180623314-e7a2caad-b2b5-40a7-bdc8-5f5283fc21e5.jpg)
+
+**Intiution-fast pointer by should be ahead nth times then both slow and fast should move till last pointer(not null)**
+
+```
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy=new ListNode(0,head);
+        ListNode* fast=dummy;
+        
+        while(n--)
+            fast=fast->next;
+        
+        ListNode* slow=dummy;
+     
+        while(fast->next) //will reach slow 1 earlier
+        {
+            slow=slow->next;
+            fast=fast->next;
+        }
+        
+        slow->next=slow->next->next; //removing
+        
+        return dummy->next;
+    }
+};
+```
