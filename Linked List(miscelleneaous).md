@@ -173,3 +173,34 @@ public:
     }
 };
 ```
+
+## Intersection of Linked List
+
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+![160_statement](https://user-images.githubusercontent.com/68277579/180623008-1d919001-f9de-4a35-8582-b15f9e7cda92.png)
+
+**Here is the Intiution-for pointer a length is l1 for pointer b length is l2 when one of them reaches null the differnce will be covered by another pointer and hence we made those both pointer aligned**
+
+https://youtu.be/u4FWXfgS8jw
+
+```
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(!headA || !headB)
+            return NULL;
+        
+        ListNode* a=headA,*b=headB;
+        
+        while(a!=b)
+        {
+            a=a==NULL? headB:a->next;
+            b=b==NULL? headA: b->next;
+        }
+        
+        return a;
+    }
+};
+```
+
