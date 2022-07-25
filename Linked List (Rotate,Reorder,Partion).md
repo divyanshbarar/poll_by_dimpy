@@ -102,7 +102,7 @@ public:
 };
 ```
 
-# odd even Linked list
+# Odd even Linked list
 
 **We put one odd as head and even as head->next Now start adding odd to odd and even to even**
 
@@ -130,6 +130,43 @@ public:
         odd->next=even_head;
         
         return head;
+    }
+};
+```
+
+# Partition List
+
+https://leetcode.com/problems/partition-list/
+
+**Read the code**
+
+  ```
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode * before_head=new ListNode(),*before=before_head;
+        
+        ListNode* after_head=new ListNode(),*after=after_head;
+        
+        while(head!=NULL)
+        {
+            if(head->val<x)
+            {  before->next=head;
+                before=before->next;
+            }
+            else
+            {
+                after->next=head;
+                after=after->next;
+            }
+            
+            head=head->next;
+        }
+        
+        after->next=NULL;
+        before->next=after_head->next;
+        
+        return before_head->next;
     }
 };
 ```
